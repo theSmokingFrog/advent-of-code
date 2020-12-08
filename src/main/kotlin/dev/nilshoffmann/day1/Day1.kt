@@ -1,0 +1,27 @@
+package dev.nilshoffmann.day1
+
+import dev.nilshoffmann.load
+
+fun solvePartOne(numbers: List<Int>): Int {
+    val matchingPair = numbers.withIndex()
+        .flatMap { num -> numbers.subList(num.index, numbers.lastIndex).map { num.value to it } }
+        .first { it.first + it.second == 2020 }
+
+    return matchingPair.first * matchingPair.second
+}
+
+fun solvePartTwo(numbers: List<Int>): Int {
+    val matchingTriple = numbers.withIndex()
+        .flatMap { num -> numbers.subList(num.index, numbers.lastIndex).map { num.value to it } }
+        .flatMap { pair -> numbers.map { Triple(pair.first, pair.second, it) } }
+        .first { it.first + it.second + it.third == 2020 }
+
+    return matchingTriple.first * matchingTriple.second * matchingTriple.third
+}
+
+fun main() {
+    val numbers = load("/inputs/day-1.txt").map { Integer.parseInt(it) }
+    println("Solution to Day 1, Part 1 is '${solvePartOne(numbers)}'")
+    println("Solution to Day 1, Part 2 is '${solvePartTwo(numbers)}'")
+}
+
