@@ -2,7 +2,7 @@ package dev.nilshoffmann.day1
 
 import dev.nilshoffmann.load
 
-fun solvePartOne(numbers: List<Int>): Int {
+fun solveDayOnePartOne(numbers: List<Int>): Int {
     val matchingPair = numbers.withIndex()
         .flatMap { num -> numbers.subList(num.index, numbers.lastIndex).map { num.value to it } }
         .first { it.first + it.second == 2020 }
@@ -10,7 +10,7 @@ fun solvePartOne(numbers: List<Int>): Int {
     return matchingPair.first * matchingPair.second
 }
 
-fun solvePartTwo(numbers: List<Int>): Int {
+fun solveDayOnePartTwo(numbers: List<Int>): Int {
     val matchingTriple = numbers.withIndex()
         .flatMap { num -> numbers.subList(num.index, numbers.lastIndex).map { num.value to it } }
         .flatMap { pair -> numbers.map { Triple(pair.first, pair.second, it) } }
@@ -21,7 +21,7 @@ fun solvePartTwo(numbers: List<Int>): Int {
 
 fun main() {
     val numbers = load("/inputs/day-1.txt").map { Integer.parseInt(it) }
-    println("Solution to Day 1, Part 1 is '${solvePartOne(numbers)}'")
-    println("Solution to Day 1, Part 2 is '${solvePartTwo(numbers)}'")
+    println("Solution to Day 1, Part 1 is '${solveDayOnePartOne(numbers)}'")
+    println("Solution to Day 1, Part 2 is '${solveDayOnePartTwo(numbers)}'")
 }
 

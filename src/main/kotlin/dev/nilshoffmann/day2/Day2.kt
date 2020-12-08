@@ -2,11 +2,11 @@ package dev.nilshoffmann.day2
 
 import dev.nilshoffmann.load
 
-fun solvePartOne(pPasswords: List<Password>): Int {
+fun solveDayTwoPartOne(pPasswords: List<Password>): Int {
     return pPasswords.filter { it.partOnePolicyValid() }.size
 }
 
-fun solvePartTwo(pPasswords: List<Password>): Int {
+fun solveDayTwoPartTwo(pPasswords: List<Password>): Int {
     return pPasswords.filter { it.partTwoPolicyValid() }.size
 }
 
@@ -20,6 +20,6 @@ fun loadPasswords(pathInResource: String): List<Password> {
 
 fun main() {
     val passwords = loadPasswords("/inputs/day-2.txt")
-    println("Solution to Day 2, Part 1 is '${solvePartOne(passwords)}'")
-    println("Solution to Day 2, Part 2 is '${solvePartTwo(passwords)}'")
+    println("Solution to Day 2, Part 1 is '${solveDayTwoPartOne(passwords)}'")
+    println("Solution to Day 2, Part 2 is '${solveDayTwoPartTwo(passwords)}'")
 }
