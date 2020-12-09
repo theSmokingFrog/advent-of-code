@@ -2,36 +2,33 @@ package dev.nilshoffmann.day4
 
 import dev.nilshoffmann.load
 
-fun readPassports(passportBatchLines: List<String>): List<Passport> {
-    var passportBuilder = Passport.Builder()
-    val passports = mutableListOf<Passport>()
+val PASSPORT_BATCH_BLOCK_REGEX = """(\w{3}):(\S+)""".toRegex()
 
-    passportBatchLines.forEach { line ->
-        if (line != "") {
-            val passportBlock = """(\w{3}):(\S+)""".toRegex()
-            passportBlock.findAll(line).forEach {
+fun readPassports(passportBatchLines: List<String>): List<Passport> {
+
+    return passportBatchLines.joinToString("\n")
+        .splitToSequence("\n\n")
+        .map { PASSPORT_BATCH_BLOCK_REGEX.findAll(it) }
+        .map { matches ->
+            val passportBuilder = Passport.Builder()
+            matches.forEach {
                 val (block, value) = it.destructured
                 passportBuilder.add(enumValueOf(block.toUpperCase()), value)
             }
-        } else {
-            passports += passportBuilder.build()
-            passportBuilder = Passport.Builder()
-        }
-    }
-    passports += passportBuilder.build()
-    return passports
+            passportBuilder.build()
+        }.toList()
 }
 
 
 fun solveDay4PartOne(passportBatchLines: List<String>): Int {
     return readPassports(passportBatchLines)
-        .filter { it.isValidPartOne() }
+        .filter { it.necessaryFieldsPresent() }
         .count()
 }
 
 fun solveDay4PartTwo(passportBatchLines: List<String>): Int {
     return readPassports(passportBatchLines)
-        .filter { it.isValidPartTwo() }
+        .filter { it.fieldsValid() }
         .count()
 }
 
