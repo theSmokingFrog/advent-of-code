@@ -11,7 +11,7 @@ class Day5Test {
 
     @Test
     fun `Part One Example is correctly calculated`() {
-        val highestSeatId = solveDay5PartOne(load(DAY5_TEST_DATA_FILE));
+        val highestSeatId = solveDay5PartOne(load(DAY5_TEST_DATA_FILE))
         assertEquals(highestSeatId, 820)
     }
 }

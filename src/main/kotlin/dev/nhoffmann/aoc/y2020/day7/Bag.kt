@@ -4,10 +4,10 @@ class Bag(private val color: String, definition: String) {
     companion object {
         fun createFromSentences(lines: List<String>): Map<String, Bag> {
             val colorAndDefinitionGroups = """^(.+) bags contain(.+)$""".toRegex()
-            return lines.map {
+            return lines.associate {
                 val (color, definition) = colorAndDefinitionGroups.find(it)!!.destructured
                 color to Bag(color, definition)
-            }.toMap()
+            }
         }
     }
 
@@ -18,10 +18,10 @@ class Bag(private val color: String, definition: String) {
         definition
             .split(",")
             .map { it.trim() }
-            .map {
+            .associate {
                 val (count, color) = singleDefinition.find(it)!!.destructured
                 color.trim() to Integer.parseInt(count)
-            }.toMap()
+            }
     }
 
     fun canContain(color: String, allBags: Map<String, Bag>): Boolean {
@@ -33,7 +33,7 @@ class Bag(private val color: String, definition: String) {
     }
 
     fun countContainedBags(allBags: Map<String, Bag>): Int {
-        return containableCountByColor.entries.map { it.value + it.value * allBags[it.key]!!.countContainedBags(allBags) }.sum()
+        return containableCountByColor.entries.sumOf { it.value + it.value * allBags[it.key]!!.countContainedBags(allBags) }
     }
 
     override fun toString(): String {
