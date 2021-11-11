@@ -34,14 +34,13 @@ stability, the same pattern repeats to the right many times:
 #...##....##...##....##...##....##...##....##...##....##...##....#
 .#..#...#.#.#..#...#.#.#..#...#.#.#..#...#.#.#..#...#.#.#..#...#.#  --->
 ```
-You start on the open square (`.`) in the top-left corner and need to reach the bottom (below the bottom-most row on
-your map).
+You start on the open square (`.`) in the top-left corner and need to reach the bottom (below the bottom-most row on your map).
 
-The toboggan can only follow a few specific slopes (you opted for a cheaper model that prefers rational numbers); start
-by counting all the trees you would encounter for the slope right 3, down 1:
+The toboggan can only follow a few specific slopes (you opted for a cheaper model that prefers rational numbers); start by **
+counting all the trees** you would encounter for the slope **right 3, down 1**:
 
-From your starting position at the top-left, check the position that is right `3` and down `1`. Then, check the position
-that is right 3 and down 1 from there, and so on until you go past the bottom of the map.
+From your starting position at the top-left, check the position that is right `3` and down `1`. Then, check the position that is
+right 3 and down 1 from there, and so on until you go past the bottom of the map.
 
 The locations you'd check in the above example are marked here with `O` where there was an open square and `X` where there
 was a tree:
@@ -62,8 +61,8 @@ was a tree:
 
 In this example, traversing the map using this slope would cause you to encounter `7` trees.
 
-Starting at the top-left corner of your map and following a slope of right `3` and down `1`, how many trees would you
-encounter?
+Starting at the top-left corner of your map and following a slope of right `3` and down `1`, **how many trees would you
+encounter?**
 
 ## Part Two
 Time to check the rest of the slopes - you need to minimize the probability of a sudden arboreal stop, after all.
@@ -77,7 +76,7 @@ and traverse the map all the way to the bottom:
 - Right 7, down 1.
 - Right 1, down 2.
 
-In the above example, these slopes would find `2`, `7`, `3`, `4`, and `2` tree(s) respectively; multiplied together, 
-these produce the answer `336`.
+In the above example, these slopes would find `2`, `7`, `3`, `4`, and `2` tree(s) respectively; multiplied together, these produce
+the answer `336`.
 
-What do you get if you multiply together the number of trees encountered on each of the listed slopes?
+**What do you get if you multiply together the number of trees encountered on each of the listed slopes?**
