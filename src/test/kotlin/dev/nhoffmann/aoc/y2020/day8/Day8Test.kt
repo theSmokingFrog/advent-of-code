@@ -1,7 +1,7 @@
 package dev.nhoffmann.aoc.y2020.day8
 
 import dev.nhoffmann.aoc.load
-import org.junit.jupiter.api.Assertions
+import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 
 class Day8Test {
@@ -12,12 +12,12 @@ class Day8Test {
     @Test
     fun `Part One Example is correctly calculated`() {
         val accumulatorValue = solveDay8PartOne(load(DAY8_TEST_DATA_FILE))
-        Assertions.assertEquals(accumulatorValue, 5)
+        assertThat(accumulatorValue).isEqualTo(5)
     }
 
     @Test
     fun `Part Two Example is correctly calculated`() {
         val accumulatorValue = solveDay8PartTwo(load(DAY8_TEST_DATA_FILE))
-        Assertions.assertEquals(accumulatorValue, 8)
+        assertThat(accumulatorValue).isEqualTo(8)
     }
 }
