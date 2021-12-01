@@ -1,6 +1,6 @@
 package dev.nhoffmann.aoc.y2020.day1
 
-import dev.nhoffmann.aoc.loadNumbers
+import dev.nhoffmann.aoc.loadInt
 import org.junit.jupiter.api.Test
 import kotlin.test.assertEquals
 
@@ -11,13 +11,13 @@ class Day1Test {
 
     @Test
     fun `Part One Example is correctly calculated`() {
-        val solvedNumber = solveDayOnePartOne(loadNumbers(DAY1_TEST_DATA_FILE))
+        val solvedNumber = solveDayOnePartOne(loadInt(DAY1_TEST_DATA_FILE))
         assertEquals(514579, solvedNumber)
     }
 
     @Test
     fun `Part Two Example is correctly calculated`() {
-        val solvedNumber = solveDayOnePartTwo(loadNumbers(DAY1_TEST_DATA_FILE))
+        val solvedNumber = solveDayOnePartTwo(loadInt(DAY1_TEST_DATA_FILE))
         assertEquals(241861950, solvedNumber)
     }
 }
