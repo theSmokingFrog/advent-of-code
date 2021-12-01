@@ -29,7 +29,7 @@ fun linesAsInstructions(lines: List<String>): List<Instruction> {
 }
 
 fun main() {
-    val lines = load("/2020/inputs/day-8.txt")
+    val lines = load("/inputs/2020/day-8.txt")
     println("Solution to Day 8, Part 1 is '${solveDay8PartOne(lines)}'")
     println("Solution to Day 8, Part 2 is '${solveDay8PartTwo(lines)}'")
 }

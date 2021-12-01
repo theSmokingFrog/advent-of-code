@@ -25,7 +25,7 @@ fun solveDay5PartTwo(encodedSeatIds: List<String>): Int {
 }
 
 fun main() {
-    val encodedSeatIds = load("/2020/inputs/day-5.txt")
+    val encodedSeatIds = load("/inputs/2020/day-5.txt")
     println("Solution to Day 5, Part 1 is '${solveDay5PartOne(encodedSeatIds)}'")
     println("Solution to Day 5, Part 2 is '${solveDay5PartTwo(encodedSeatIds)}'")
 }

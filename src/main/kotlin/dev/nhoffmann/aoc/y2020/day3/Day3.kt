@@ -41,7 +41,7 @@ fun solveDay3PartTwo(localMap: List<String>): Long {
 }
 
 fun main() {
-    val localMap = load("/2020/inputs/day-3.txt")
+    val localMap = load("/inputs/2020/day-3.txt")
     println("Solution to Day 3, Part 1 is '${solveDay3PartOne(localMap)}'")
     println("Solution to Day 3, Part 2 is '${solveDay3PartTwo(localMap)}'")
 }

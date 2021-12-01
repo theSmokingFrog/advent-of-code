@@ -13,7 +13,7 @@ fun solveDay7PartTwo(lines: List<String>, colorToCountContained: String): Int {
 }
 
 fun main() {
-    val bagDefinitions = load("/2020/inputs/day-7.txt")
+    val bagDefinitions = load("/inputs/2020/day-7.txt")
     println("Solution to Day 7, Part 1 is '${solveDay7PartOne(bagDefinitions, "shiny gold")}'")
     println("Solution to Day 7, Part 2 is '${solveDay7PartTwo(bagDefinitions, "shiny gold")}'")
 }

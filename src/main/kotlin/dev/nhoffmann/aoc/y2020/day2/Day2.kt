@@ -19,7 +19,7 @@ fun loadPasswords(pathInResource: String): List<Password> {
 }
 
 fun main() {
-    val passwords = loadPasswords("/2020/inputs/day-2.txt")
+    val passwords = loadPasswords("/inputs/2020/day-2.txt")
     println("Solution to Day 2, Part 1 is '${solveDayTwoPartOne(passwords)}'")
     println("Solution to Day 2, Part 2 is '${solveDayTwoPartTwo(passwords)}'")
 }

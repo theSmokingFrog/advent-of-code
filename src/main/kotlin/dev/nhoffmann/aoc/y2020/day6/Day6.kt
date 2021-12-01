@@ -22,7 +22,7 @@ fun solveDay6PartTwo(lines: List<String>): Int {
 }
 
 fun main() {
-    val customsDeclarationLines = load("/2020/inputs/day-6.txt")
+    val customsDeclarationLines = load("/inputs/2020/day-6.txt")
     println("Solution to Day 6, Part 1 is '${solveDay6PartOne(customsDeclarationLines)}'")
     println("Solution to Day 6, Part 2 is '${solveDay6PartTwo(customsDeclarationLines)}'")
 }

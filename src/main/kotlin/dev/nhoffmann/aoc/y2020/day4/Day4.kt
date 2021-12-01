@@ -30,7 +30,7 @@ fun solveDay4PartTwo(passportBatchLines: List<String>): Int {
 }
 
 fun main() {
-    val passportBatchLines = load("/2020/inputs/day-4.txt")
+    val passportBatchLines = load("/inputs/2020/day-4.txt")
     println("Solution to Day 4, Part 1 is '${solveDay4PartOne(passportBatchLines)}'")
     println("Solution to Day 4, Part 2 is '${solveDay4PartTwo(passportBatchLines)}'")
 }

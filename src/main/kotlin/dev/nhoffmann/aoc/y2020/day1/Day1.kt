@@ -20,7 +20,7 @@ fun solveDayOnePartTwo(numbers: List<Int>): Int {
 }
 
 fun main() {
-    val numbers = load("/2020/inputs/day-1.txt").map { Integer.parseInt(it) }
+    val numbers = load("/inputs/2020/day-1.txt").map { Integer.parseInt(it) }
     println("Solution to Day 1, Part 1 is '${solveDayOnePartOne(numbers)}'")
     println("Solution to Day 1, Part 2 is '${solveDayOnePartTwo(numbers)}'")
 }

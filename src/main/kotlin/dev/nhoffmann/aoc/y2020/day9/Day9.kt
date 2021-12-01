@@ -12,7 +12,7 @@ fun solvePartOne(numbers: List<Long>, preambleSize: Int): Long {
 }
 
 fun main() {
-    val numbers = loadLong("/2020/inputs/day-9.txt")
+    val numbers = loadLong("/inputs/2020/day-9.txt")
     println("Solution to Day 8, Part 1 is '${solvePartOne(numbers, 25)}'")
     //println("Solution to Day 8, Part 2 is '${solveDay8PartTwo(lines)}'")
 }
