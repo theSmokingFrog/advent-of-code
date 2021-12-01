@@ -6,7 +6,7 @@ import kotlin.test.assertEquals
 
 class Day1Test {
     companion object {
-        const val DAY1_TEST_DATA_FILE = "/2020/inputs/day-1-test.txt"
+        const val DAY1_TEST_DATA_FILE = "/inputs/2020/day-1-test.txt"
     }
 
     @Test

@@ -6,8 +6,8 @@ import org.junit.jupiter.api.Test
 
 class Day7Test {
     companion object {
-        const val DAY7_TEST_DATA_FILE = "/2020/inputs/day-7-test.txt"
-        const val DAY7_2_TEST_DATA_FILE = "/2020/inputs/day-7.2-test.txt"
+        const val DAY7_TEST_DATA_FILE = "/inputs/2020/day-7-test.txt"
+        const val DAY7_2_TEST_DATA_FILE = "/inputs/2020/day-7.2-test.txt"
     }
 
     @Test
