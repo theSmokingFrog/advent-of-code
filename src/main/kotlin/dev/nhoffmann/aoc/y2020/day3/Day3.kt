@@ -22,6 +22,13 @@ fun countTreesBySlope(slope: Slope, localMap: List<String>): Int {
     return treeCount
 }
 
+fun countTreesbySlopeJetBrains(slope: Slope, localMap: List<String>): Int {
+    val mapWidth = localMap[0].length
+    return localMap.indices
+        .step(slope.down)
+        .count { idx -> localMap[idx][(idx / slope.down) * slope.right % mapWidth] == '#' }
+}
+
 fun solveDay3PartOne(localMap: List<String>): Int {
     return countTreesBySlope(Slope(3, 1), localMap)
 }
