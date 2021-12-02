@@ -1,6 +1,16 @@
 package dev.nhoffmann.aoc.y2020.day2
 
 class Password(lowNumber: String, highNumber: String, policyCharacter: String, private val password: String) {
+    companion object {
+        private val passwordLineRegex = Regex("""^(\d+)-(\d+) (\w)\W*(\w+)""")
+
+        fun of(rawPassword: String): Password {
+            return passwordLineRegex.find(rawPassword)!!
+                .destructured
+                .let { (low, high, char, password) -> Password(low, high, char, password) }
+        }
+    }
+
     private val lowNumber: Int = Integer.parseInt(lowNumber)
     private val highNumber: Int = Integer.parseInt(highNumber)
     private val policyChar: Char = policyCharacter[0]
