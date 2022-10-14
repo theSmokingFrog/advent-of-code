@@ -3,6 +3,7 @@ package dev.nhoffmann.aoc.y2021.day9
 import dev.nhoffmann.aoc.load
 import org.assertj.core.api.Assertions
 import org.junit.jupiter.api.BeforeEach
+import org.junit.jupiter.api.Disabled
 import org.junit.jupiter.api.Test
 
 class Day9Test {
@@ -25,6 +26,7 @@ class Day9Test {
     }
 
     @Test
+    @Disabled("Not yet tackled the exercise")
     fun solveDay9PartTwoTest() {
         val result = solveDay9PartTwo(lines)
         Assertions.assertThat(result).isEqualTo(Int.MAX_VALUE)

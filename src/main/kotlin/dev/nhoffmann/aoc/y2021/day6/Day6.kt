@@ -8,7 +8,6 @@ private fun growFishiesForDaysInefficient(lanternFishData: List<String>, days: I
     val fishies = lanternFishData.fishies().toMutableList()
 
     for (i in 0 until days) {
-        println("🗓 Day ${i + 1}")
         val newFishies = fishies.mapNotNull { it.simulateGrowthInefficient() }
         fishies += newFishies
     }
@@ -20,7 +19,6 @@ private fun secondAttempt(lanternFishData: List<String>, days: Int): Long {
     val fishies = lanternFishData.fishies()
 
     for (i in 0 until days) {
-        println("🗓 Day ${i + 1}")
         fishies.forEach { it.growChildren() }
     }
 
