@@ -27,6 +27,6 @@ class Day5Test {
     @Test
     fun solveDay5PartTwoTest() {
         val result = solveDay5PartTwo(input)
-        Assertions.assertThat(result).isEqualTo(-1)
+        Assertions.assertThat(result).isEqualTo("MCD")
     }
 }

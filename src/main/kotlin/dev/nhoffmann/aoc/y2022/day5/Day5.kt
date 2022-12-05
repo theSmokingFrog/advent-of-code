@@ -2,11 +2,10 @@ package dev.nhoffmann.aoc.y2022.day5
 
 import dev.nhoffmann.aoc.loadAsSingle
 
-
 fun solveDay5PartOne(loadedData: String): String {
     val split = loadedData.split("\n\n")
 
-    val crane = Crane(
+    val crane: Crane = CrateMover9000(
         crateStacks = CrateStacks.of(drawing = split.first()),
         rearrangementProcedure = Instruction.createFrom(rawInstructions = split.last())
     )
@@ -15,8 +14,16 @@ fun solveDay5PartOne(loadedData: String): String {
     return crane.crateStacks.getTopCrates()
 }
 
-fun solveDay5PartTwo(loadedData: String): Int {
-    TODO()
+fun solveDay5PartTwo(loadedData: String): String {
+    val split = loadedData.split("\n\n")
+
+    val crane: Crane = CrateMover9001(
+        crateStacks = CrateStacks.of(drawing = split.first()),
+        rearrangementProcedure = Instruction.createFrom(rawInstructions = split.last())
+    )
+    crane.rearrangeCrates()
+
+    return crane.crateStacks.getTopCrates()
 }
 
 fun main() {
