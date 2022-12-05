@@ -1,14 +1,17 @@
 package dev.nhoffmann.aoc
 
 import java.io.FileNotFoundException
+import java.io.InputStream
 import java.util.*
 
-fun load(pathInResources: String): List<String> {
-    val resourceAsStream = Optional.ofNullable(Unit.javaClass.getResourceAsStream(pathInResources))
-        .orElseThrow { FileNotFoundException("File for Resource at $pathInResources could not be found!") }
-
-    return resourceAsStream.bufferedReader().readLines()
+private fun String.asStreamResource(): InputStream {
+    return Optional.ofNullable(Unit.javaClass.getResourceAsStream(this))
+        .orElseThrow { FileNotFoundException("File for Resource at $this could not be found!") }
 }
+
+fun load(pathInResources: String): List<String> = pathInResources.asStreamResource().bufferedReader().readLines()
+
+fun loadAsSingle(pathInResources: String): String = pathInResources.asStreamResource().bufferedReader().readText()
 
 fun loadInt(pathInResources: String): List<Int> = load(pathInResources).map { it.toInt() }
 
