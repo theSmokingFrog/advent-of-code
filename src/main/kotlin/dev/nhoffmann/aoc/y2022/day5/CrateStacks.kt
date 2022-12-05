@@ -11,23 +11,29 @@ class CrateStacks private constructor(private val stacksByNumber: Map<Int, Stack
             return CrateStacks(createStackMapping(lastStackNumber, drawingLines))
         }
 
-        private fun getCrateFromString(it: String, stackNumber: Int): String {
+        private fun String.crateByStackNumber(stackNumber: Int): String {
             return try {
-                it.substring((stackNumber - 1) * 4, (stackNumber - 1) * 4 + 3)
+                this.substring((stackNumber - 1) * 4, (stackNumber - 1) * 4 + 3)
             } catch (ex: StringIndexOutOfBoundsException) {
                 ""
             }
         }
 
+        private fun String.removeBraces(): String = this[1].toString()
+
+        private fun List<String>.withoutLast(): List<String> = subList(0, lastIndex)
+
+        private fun List<String>.toStack(): Stack<String> = fold(Stack<String>()) { stack, str -> stack.also { it.push(str) } }
+
         private fun createStackMapping(lastStackNumber: Int, drawingLines: List<String>): Map<Int, Stack<String>> {
             return (1..lastStackNumber).associateWith { stackNumber ->
                 drawingLines
-                    .subList(0, drawingLines.lastIndex)
-                    .map { getCrateFromString(it, stackNumber) }
-                    .filter { it.isNotBlank() }
-                    .map { it.substring(1..1) }
+                    .withoutLast()
+                    .map { line -> line.crateByStackNumber(stackNumber) }
+                    .filter { crate -> crate.isNotBlank() }
+                    .map { crate -> crate.removeBraces() }
                     .reversed()
-                    .fold(Stack<String>()) { stack, s -> stack.also { it.push(s) } }
+                    .toStack()
             }
         }
     }
