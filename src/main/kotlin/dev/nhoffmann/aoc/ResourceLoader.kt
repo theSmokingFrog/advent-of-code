@@ -11,7 +11,7 @@ private fun String.asStreamResource(): InputStream {
 
 fun load(pathInResources: String): List<String> = pathInResources.asStreamResource().bufferedReader().readLines()
 
-fun loadAsSingle(pathInResources: String): String = pathInResources.asStreamResource().bufferedReader().readText()
+fun loadAsSingle(pathInResources: String): String = pathInResources.asStreamResource().bufferedReader().readText().trim()
 
 fun loadInt(pathInResources: String): List<Int> = load(pathInResources).map { it.toInt() }
 
