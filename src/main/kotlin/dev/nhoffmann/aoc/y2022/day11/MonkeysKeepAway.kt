@@ -1,21 +1,24 @@
 package dev.nhoffmann.aoc.y2022.day11
 
 class MonkeysKeepAway(private val monkeys: List<Monkey>, private val rounds: Int) {
+    companion object {
+        var monkeyModulus = 1L
+    }
+
+    private fun List<Monkey>.calculateMonkeyModulus(): Long {
+        return fold(1L) { acc, monkey -> acc * monkey.testValue }
+    }
+
+
     fun play(): MonkeysKeepAway {
-        (0 until rounds).forEach { _ ->
-            for (monkey in monkeys) {
-                monkey.takeTurn(monkeys)
-            }
-        }
+        monkeyModulus = monkeys.calculateMonkeyModulus()
+        repeat(rounds) { monkeys.forEach { it.takeTurn(monkeys) } }
         return this
     }
 
     fun playSerious(): MonkeysKeepAway {
-        (0 until rounds).forEach { _ ->
-            for (monkey in monkeys) {
-                monkey.takeSeriousTurn(monkeys)
-            }
-        }
+        monkeyModulus = monkeys.calculateMonkeyModulus()
+        repeat(rounds) { monkeys.forEach { it.takeSeriousTurn(monkeys) } }
         return this
     }
 

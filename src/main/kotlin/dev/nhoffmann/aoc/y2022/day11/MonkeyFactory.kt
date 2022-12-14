@@ -1,7 +1,5 @@
 package dev.nhoffmann.aoc.y2022.day11
 
-import java.math.BigDecimal
-
 private val monkeyDefinition = Regex(
     """Monkey (\d+):
 \s*Starting items: (.*)$
@@ -14,9 +12,12 @@ private val monkeyDefinition = Regex(
 fun monkeyFromDefinition(definition: String): Monkey {
     return monkeyDefinition.find(definition)!!.destructured.let { match ->
         val id = match.component1().toInt()
-        val startingItems = match.component2().split(", ").map { Item(it.toInt()) }.toMutableList()
+        val startingItems = match.component2()
+            .split(", ")
+            .map { Item(worryLevel = it.toLong()) }
+            .toMutableList()
         val operation = Operation(match.component3())
-        val testValue = match.component4().toInt()
+        val testValue = match.component4().toLong()
         val testSuccessTarget = match.component5().toInt()
         val testFailTarget = match.component6().toInt()
 
@@ -24,7 +25,7 @@ fun monkeyFromDefinition(definition: String): Monkey {
             id = id,
             items = startingItems,
             worryOperation = operation,
-            testValue = BigDecimal(testValue),
+            testValue = testValue,
             testSuccessMonkeyId = testSuccessTarget,
             testFailMonkeyId = testFailTarget
         )

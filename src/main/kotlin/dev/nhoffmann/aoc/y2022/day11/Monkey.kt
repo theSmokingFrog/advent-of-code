@@ -1,12 +1,10 @@
 package dev.nhoffmann.aoc.y2022.day11
 
-import java.math.BigDecimal
-
 class Monkey(
     val id: Int,
     val items: MutableList<Item>,
     val worryOperation: Operation,
-    val testValue: BigDecimal,
+    val testValue: Long,
     val testSuccessMonkeyId: Int,
     val testFailMonkeyId: Int
 ) {
@@ -29,7 +27,7 @@ class Monkey(
     }
 
     private fun throwItem(item: Item, monkeys: List<Monkey>) {
-        val monkey = if (item.worryLevel.toLong() % testValue.toLong() == 0L) {
+        val monkey = if (item.worryLevel % testValue == 0L) {
             monkeys.first { it.id == testSuccessMonkeyId }
         } else {
             monkeys.first { it.id == testFailMonkeyId }

@@ -3,7 +3,6 @@ package dev.nhoffmann.aoc.y2022.day11
 import dev.nhoffmann.aoc.loadAsSingle
 import org.assertj.core.api.Assertions
 import org.junit.jupiter.api.BeforeEach
-import org.junit.jupiter.api.Disabled
 import org.junit.jupiter.api.Test
 
 class Day11Test {
@@ -26,7 +25,6 @@ class Day11Test {
     }
 
     @Test
-    @Disabled("Whatever I have done here, it takes far to much time!")
     fun solveDay11PartTwoTest() {
         val result = solveDay11PartTwo(lines)
         Assertions.assertThat(result).isEqualTo(2_713_310_158L)

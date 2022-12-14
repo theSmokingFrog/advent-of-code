@@ -2,18 +2,16 @@ package dev.nhoffmann.aoc.y2022.day11
 
 import dev.nhoffmann.aoc.loadAsSingle
 
-fun solveDay11PartOne(loadedData: String): Long {
-    val loadedMonkeys = loadedData.split("\n\n").map { monkeyFromDefinition(it) }.sortedBy { it.id }
+private fun String.asMonkeys(): List<Monkey> = split("\n\n").map { monkeyFromDefinition(it) }.sortedBy { it.id }
 
-    return MonkeysKeepAway(monkeys = loadedMonkeys, rounds = 20)
+fun solveDay11PartOne(loadedData: String): Long {
+    return MonkeysKeepAway(monkeys = loadedData.asMonkeys(), rounds = 20)
         .play()
         .monkeyBusiness()
 }
 
 fun solveDay11PartTwo(loadedData: String): Long {
-    val loadedMonkeys = loadedData.split("\n\n").map { monkeyFromDefinition(it) }.sortedBy { it.id }
-
-    return MonkeysKeepAway(monkeys = loadedMonkeys, rounds = 10000)
+    return MonkeysKeepAway(monkeys = loadedData.asMonkeys(), rounds = 10000)
         .playSerious()
         .monkeyBusiness()
 }
