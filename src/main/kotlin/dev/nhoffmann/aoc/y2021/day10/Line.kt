@@ -1,6 +1,6 @@
 package dev.nhoffmann.aoc.y2021.day10
 
-import mu.KotlinLogging
+import io.github.oshai.kotlinlogging.KotlinLogging
 import java.util.*
 
 class Line(private val data: String) {
