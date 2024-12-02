@@ -13,7 +13,7 @@ fun solveDay5PartTwo(rawAlmanac: String): Long {
     val almanac = IslandIslandAlmanac(rawAlmanac)
 
     // This inadvertently dies with an OutOfMemoryError. And I have no idea on how to solve that.
-    val seedIds = almanac.seedIds.chunked(2).map { it[0]..<it[0] + it[1] }
+    val seedIds = almanac.seedIds.chunked(2).map { it[0]..it[0] + it[1] }
     val flat = seedIds.map { it.chunked(25000) }.flatten()
     return flat.asSequence().map { it.map { n -> SeedData.create(n, almanac) } }.map { it.minOf { s -> s.location } }.toList().min()
 }
