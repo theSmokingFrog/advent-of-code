@@ -1,23 +1,14 @@
 package dev.nhoffmann.aoc.y2024.day1
 
 import dev.nhoffmann.aoc.load
-
-private fun createLeftAndRightList(loadedData: List<String>) = loadedData.map { line ->
-    val split = line.split("   ")
-    split.first().toInt() to split.last().toInt()
-}.unzip()
+import kotlin.math.abs
 
 fun solveDay1PartOne(loadedData: List<String>): Int {
     val (leftList, rightList) = createLeftAndRightList(loadedData)
 
     return leftList.sorted()
-        .zip(rightList.sorted()).sumOf { (left, right) ->
-            if (left > right) {
-                left - right
-            } else {
-                right - left
-            }
-        }
+        .zip(rightList.sorted())
+        .sumOf { (left, right) -> abs(left - right) }
 }
 
 
@@ -25,6 +16,13 @@ fun solveDay1PartTwo(loadedData: List<String>): Int {
     val (leftList, rightList) = createLeftAndRightList(loadedData)
 
     return leftList.sumOf { rightList.count { entry -> entry == it } * it }
+}
+
+private fun createLeftAndRightList(loadedData: List<String>): Pair<List<Int>, List<Int>> {
+    return loadedData.map {
+        val split = it.split("   ")
+        split.first().toInt() to split.last().toInt()
+    }.unzip()
 }
 
 fun main() {
