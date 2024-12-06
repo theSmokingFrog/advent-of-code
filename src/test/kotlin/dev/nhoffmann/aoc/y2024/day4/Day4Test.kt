@@ -22,9 +22,9 @@ class Day4Test {
 
     @Test
     fun solveDay4PartTwoTest() {
-        val lines = load("TEST_DATA_FILE")
+        val lines = load("/inputs/2024/day-4-test-2.txt")
         Assertions.assertThat(lines).isNotEmpty
         val result = solveDay4PartTwo(lines)
-        Assertions.assertThat(result).isEqualTo(-1)
+        Assertions.assertThat(result).isEqualTo(9)
     }
 }

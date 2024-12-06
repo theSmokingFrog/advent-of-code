@@ -8,7 +8,7 @@ fun solveDay4PartOne(wordGrid: List<String>, searchTerm: String): Int {
 
 
 fun solveDay4PartTwo(loadedData: List<String>): Int {
-    TODO()
+    return XMasFinder(loadedData).count()
 }
 
 fun main() {
